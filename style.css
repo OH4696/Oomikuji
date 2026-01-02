@@ -1,0 +1,37 @@
+:root{
+  --bg:#fffaf0;
+  --card:#ffffffaa;
+  --accent:#b71c1c;
+  --muted:#555;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  background:linear-gradient(180deg,#fffef9 0%,#fff6ed 100%);color:#222;display:flex;align-items:center;justify-content:center;
+}
+.container{width:min(720px,94%);text-align:center;padding:28px}
+.title{margin:0 0 18px;font-size:2rem;color:var(--accent)}
+.card{background:var(--card);border-radius:12px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,0.08);min-height:140px;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;height:300px}
+.pages{width:100%;min-height:120px;position:relative;height:100%;overflow:hidden}
+.page{padding:6px 0;box-sizing:border-box;display:none;flex-direction:column;align-items:center;justify-content:center;height:100%;overflow:auto;position:absolute;inset:0}
+.page.active{display:flex}
+.result{font-size:2rem;margin:0;font-weight:700}
+.message{margin:8px 0 0;color:var(--muted)}
+.section-title{margin:0 0 8px;font-size:1.1rem;color:var(--accent)}
+.categories{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.categories li{background:rgba(255,255,255,0.6);padding:10px;border-radius:8px;text-align:left;overflow:auto}
+.longtext{white-space:pre-wrap;text-align:left;margin:6px 0;color:var(--muted)}
+.controls{margin-top:18px;display:flex;gap:12px;justify-content:center}
+.pager{display:flex;gap:12px;align-items:center;justify-content:center;margin-top:12px}
+.btn[disabled]{opacity:0.5;cursor:default}
+.btn{padding:10px 16px;border-radius:8px;border:1px solid #e1d5d5;background:white;cursor:pointer;font-size:1rem}
+.btn.primary{background:var(--accent);color:#fff;border:none}
+.btn:active{transform:translateY(1px)}
+.footer{margin-top:22px;color:#666;font-size:0.9rem}
+.confetti{
+  position:absolute;pointer-events:none;animation:fall 1200ms linear forwards;
+}
+@keyframes fall{to{transform:translateY(220px) rotate(360deg);opacity:0}}
+
+@media (prefers-reduced-motion:reduce){.confetti{animation:none;opacity:0.9}}
