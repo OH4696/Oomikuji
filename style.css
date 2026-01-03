@@ -12,7 +12,7 @@ body{
 }
 .container{width:min(720px,94%);text-align:center;padding:28px}
 .title{margin:0 0 18px;font-size:2rem;color:var(--accent)}
-.card{background:var(--card);border-radius:12px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,0.08);min-height:140px;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;height:300px}
+.card{background:var(--card);border-radius:12px;padding:20px;box-shadow:0 6px 18px rgba(0,0,0,0.08);min-height:140px;display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;height:350px}
 .pages{width:100%;min-height:120px;position:relative;height:100%;overflow:hidden}
 .page{padding:6px 0;box-sizing:border-box;display:none;flex-direction:column;align-items:center;justify-content:center;height:100%;overflow:auto;position:absolute;inset:0}
 .page.active{display:flex}
