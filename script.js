@@ -95,11 +95,19 @@ function spawnConfetti(color){
   for(let i=0;i<12;i++){
     const d = document.createElement('div');
     d.className='confetti';
+    d.style.position='fixed';
+    d.style.zIndex='1000';
     d.style.width='8px';d.style.height='12px';
-    d.style.background=color;d.style.left=(20+i*6)+'%';
-    d.style.top='40%';d.style.transform=`translateY(0) rotate(${Math.random()*360}deg)`;
+    d.style.background=color;d.style.left=(15+i*6)+'%';
+    d.style.top='40%';
+    const r = Math.random()*360;
+    d.style.transform=`translateY(0) rotate(${r}deg)`;
     document.body.appendChild(d);
-    setTimeout(()=>d.remove(),1400);
+    const anim = d.animate([
+      { transform: `translateY(0) rotate(${r}deg)`, opacity: 1 },
+      { transform: `translateY(200px) rotate(${r+180}deg)`, opacity: 0 }
+    ], { duration: 1400, easing: 'ease-out' });
+    anim.onfinish = () => d.remove();
   }
 }
 
@@ -150,11 +158,11 @@ function updateFooter(){
     "あ...。",
     "かんにんな、どうにか最近涙もろうてな。",
     "参拝しに来はってもろてるのにこんな姿見せてしもて申し訳が立たへんわ。",
-    "え？話を聞く...？",
+    "話を聞く...？",
     "さっきみたいな対しておもろない話ばっかりやで！",
     "それでもええ言うんやったら、まぁ...",
-    "...そう...やな。",
-    "ここもな、昔はよう賑わっとったんよ。",
+    "そう.....やな。",
+    "ここもな、昔はように賑わっとったんよ。",
     "家族連れとか、若い夫婦とかもよう来とったわ。",
     "みんな笑顔でな、おみくじ引いたり、絵馬書いたりしとってん、",
     "ほんでな、子供らが走り回っとったりしてな。",
@@ -185,8 +193,8 @@ function updateFooter(){
     "でもな、それでもええんよ。",
     "誰かがここに来てくれるんやったらな。",
     "それでもええんよ。",
-    "それでも...。",
-    "時代の在り方に沿って変わっていくのも大切やしな。",
+    "...それでも。",
+    "時代の在り方沿って変わっていくのも大切やしな。",
     "それがたとえ神様の望みやったとしてもな。",
     "人にはそれぞれの生き方があるんやからな。",
     "なんや、もう重い話はおしまいや！",
@@ -208,14 +216,14 @@ function updateFooter(){
     "ほんでな、またおいでな！",
     "待っとるからな！",
     "...",
-    "気が付くと、社は古び、朱は剥げ、石段には苔が広がっている神社の中に立っていた。ふと目に入った結び所には、一つだけおみくじが結ばれていた。なぜか手に持っていたおみくじを結び、本殿に向かうと深く静かに名乗りと感謝を述べた。鈴の音が聞こえた気がしたが、たぶん気のせいだろう。",
+    "気が付くと、社は古び、朱は剥げ、石段には苔が広がっている神社の中に立っていた。ふと目に入った結び所には、一つだけおみくじが結ばれていた。なぜか手に持っていたおみくじを結び、本殿に向かうと深く静かに名乗りと感謝を述べた。鈴の音が聞こえた気がしたが、たぶん気のせいだろう。　",
   ];
 
   let msg = 'おみくじやでな。気軽にとらえてたも。';
   if(count >= 1 && count <= 100){
     msg = messages[count - 1];
   } else if(count > 100){
-    msg = '100回以上お引きいただきありがとうございました。良い運勢が訪れますように。';
+    msg = '100回以上お引きいただきありがとうございました。';
   }
   elFooter.textContent = msg;
 }
