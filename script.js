@@ -13,7 +13,7 @@ const elFooter = document.querySelector('.footer');
 // ボックスの縦サイズを大きくする設定
 const styleBox = document.createElement('style');
 styleBox.textContent = `
-  .fortune-card { height: 700px; overflow-y: auto; }
+  .fortune-card { height: 700px; max-height: 85vh; overflow-y: auto; }
 `;
 document.head.appendChild(styleBox);
 
